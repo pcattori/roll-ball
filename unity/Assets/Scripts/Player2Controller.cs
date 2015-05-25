@@ -20,6 +20,7 @@ public class Player2Controller : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter(Collision other) {
+		// use mass ratio to compute velocity transform
 		this.transform.GetComponent<Rigidbody>().velocity = Vector3.Reflect(other.relativeVelocity*-1, other.contacts[0].normal );
 	}
 }
