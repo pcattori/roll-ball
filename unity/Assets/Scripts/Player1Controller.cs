@@ -18,4 +18,8 @@ public class Player1Controller : MonoBehaviour {
 
 		rb.AddForce(speed * movement);
 	}
+
+	void OnCollisionEnter(Collision other) {
+		this.transform.GetComponent<Rigidbody>().velocity = Vector3.Reflect(other.relativeVelocity*-1, other.contacts[0].normal );
+	}
 }
