@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour {
+public class Player1Controller : MonoBehaviour {
 
 	private Rigidbody rb;
 	public float speed;
@@ -11,8 +11,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		float moveHorizontal = Input.GetAxis("Horizontal");
-		float moveVertical = Input.GetAxis("Vertical");
+		float moveHorizontal = Input.GetAxis("Player1Horizontal");
+		float moveVertical = Input.GetAxis("Player1Vertical");
 
 		Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
