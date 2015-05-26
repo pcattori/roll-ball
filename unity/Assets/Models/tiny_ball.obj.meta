@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: 53ac7430d39b54f7088770a1fa8b18e0
-timeCreated: 1432590781
+guid: 6fb099d3779ba49978a127c4836a7b29
+timeCreated: 1432681157
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: polySurface69
-    100002: //RootNode
-    400000: polySurface69
-    400002: //RootNode
-    2300000: polySurface69
-    3300000: polySurface69
-    4300000: polySurface69
+    100000: //RootNode
+    100002: tiny_ball:polySurface69
+    400000: //RootNode
+    400002: tiny_ball:polySurface69
+    2300000: tiny_ball:polySurface69
+    3300000: tiny_ball:polySurface69
+    4300000: tiny_ball:polySurface69
   materials:
     importMaterials: 1
     materialName: 0
