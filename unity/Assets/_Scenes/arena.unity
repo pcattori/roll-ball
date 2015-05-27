@@ -146,6 +146,10 @@ Prefab:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 98e8ef8db853c4d9d98aee55b52ce756, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 98e8ef8db853c4d9d98aee55b52ce756, type: 3}
   m_IsPrefabParent: 0
@@ -252,7 +256,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 1
-  m_Color: {r: 1, g: .956862748, b: .839215696, a: 1}
+  m_Color: {r: .95588237, g: .846511364, b: .548226655, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -299,10 +303,66 @@ MeshCollider:
   m_GameObject: {fileID: 481757130}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: 08696137bb78f4da68e4e6e511427af1, type: 3}
+--- !u!1 &551173746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: 0e3d333f077f94c23af0f66b902a7755, type: 3}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 551173747}
+  - 135: {fileID: 551173749}
+  - 114: {fileID: 551173748}
+  m_Layer: 0
+  m_Name: bomb
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &551173747
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: 0e3d333f077f94c23af0f66b902a7755, type: 3}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 551173746}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2, y: 0, z: 5}
+  m_LocalScale: {x: .5, y: .5, z: .5}
+  m_Children:
+  - {fileID: 2128359899}
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+--- !u!114 &551173748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 551173746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c316c392d5854034a2cfcd5e24a2aa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 12
+  radius: 10
+  countdown: 5
+--- !u!135 &551173749
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 551173746}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.5
+  m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!1 &581662429
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,7 +515,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 08696137bb78f4da68e4e6e511427af1, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08696137bb78f4da68e4e6e511427af1, type: 3}
@@ -513,7 +573,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 26d60600826724cfaa4e73a4545607b6, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 26d60600826724cfaa4e73a4545607b6, type: 3}
       propertyPath: m_Layer
@@ -549,7 +609,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1423595560}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 2.5
@@ -587,8 +647,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1802514664}
   - 54: {fileID: 1802514666}
-  - 114: {fileID: 1802514667}
   - 135: {fileID: 1802514668}
+  - 114: {fileID: 1802514667}
   m_Layer: 8
   m_Name: medieval_ball
   m_TagString: Player1
@@ -623,6 +683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
+  bounciness: 2
 --- !u!135 &1802514668
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -719,6 +780,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!1 &2128359896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100002, guid: 0e3d333f077f94c23af0f66b902a7755, type: 3}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2128359899}
+  - 33: {fileID: 2128359898}
+  - 23: {fileID: 2128359897}
+  m_Layer: 0
+  m_Name: polySurface82
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &2128359897
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300000, guid: 0e3d333f077f94c23af0f66b902a7755,
+    type: 3}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2128359896}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 7cf3e67b911c0475cad136bae8d5a010, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &2128359898
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 3300000, guid: 0e3d333f077f94c23af0f66b902a7755,
+    type: 3}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2128359896}
+  m_Mesh: {fileID: 4300000, guid: 0e3d333f077f94c23af0f66b902a7755, type: 3}
+--- !u!4 &2128359899
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400002, guid: 0e3d333f077f94c23af0f66b902a7755, type: 3}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2128359896}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 551173747}
+  m_RootOrder: 0
 --- !u!1001 &2131341086
 Prefab:
   m_ObjectHideFlags: 0
@@ -804,7 +927,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89463db15d0bf4a5b9a498f25c7e0ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 8
+  bounciness: 1.5
 --- !u!135 &2131341090
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 
 	public float speed;
+	public float bounciness;
 
 	private Rigidbody rb;
 	private Vector3 velocity;
@@ -40,7 +41,7 @@ public class PlayerController : MonoBehaviour {
 
 			Vector3 v_cm = (m_1 * v_1 + m_2 * v_2) / (m_1 + m_2);
 
-			rb.velocity = 2f * v_cm - v_1;
+			rb.velocity = bounciness * (2f * v_cm - v_1);
 		}
 	}
 
@@ -62,7 +63,7 @@ public class PlayerController : MonoBehaviour {
 
 	IEnumerator PickUpJump() {
 		canJump = true;
-		yield return new WaitForSeconds(5);
+		yield return new WaitForSeconds(10);
 		canJump = false;
 	}
 }
