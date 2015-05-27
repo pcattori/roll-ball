@@ -13,19 +13,16 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		float moveHorizontal = Input.GetAxis(rb.tag + "Horizontal");
-		float moveVertical = Input.GetAxis(rb.tag + "Vertical");
-
-		Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
-		rb.AddForce(speed * movement);
-
+		float moveHorizontal = Input.GetAxis (rb.tag + "Horizontal");
+		float moveVertical = Input.GetAxis (rb.tag + "Vertical");
+		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+		rb.AddForce (speed * movement);
 		velocity = rb.velocity;
 	}
 
 	void OnCollisionEnter(Collision other) {
 		// Elastic collision: v_i' = 2v_cm - v_i
-		if (other.gameObject.layer == 8) {
+		if (other.gameObject.layer == 8) { // other players
 			float m_1 = rb.mass;
 			float m_2 = other.gameObject.GetComponent<Rigidbody> ().mass;
 
