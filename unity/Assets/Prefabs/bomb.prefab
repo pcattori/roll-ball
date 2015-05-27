@@ -118,8 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c316c392d5854034a2cfcd5e24a2aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 18
-  radius: 12
+  power: 14
+  radius: 7
   countdown: 5
 --- !u!135 &13535410
 SphereCollider:
