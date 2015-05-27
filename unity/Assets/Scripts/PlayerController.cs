@@ -8,19 +8,12 @@ public class PlayerController : MonoBehaviour {
 	private Rigidbody rb;
 	private Vector3 velocity;
 	private bool grounded;
-	private bool jump;
+	private bool canJump;
 
 	void Start() {
 		rb = GetComponent<Rigidbody> ();
 		grounded = true;
-		jump = false;
-	}
-
-	void Update() {
-		if (grounded && Input.GetKeyDown ("space")) {
-			grounded = false;
-			jump = true;
-		}
+		canJump = false;
 	}
 
 	void FixedUpdate() {
@@ -30,7 +23,7 @@ public class PlayerController : MonoBehaviour {
 		rb.AddForce (speed * movement);
 		velocity = rb.velocity;
 
-		if (grounded && Input.GetKeyDown("space")) {
+		if (grounded && canJump && Input.GetKeyDown("space")) {
 			rb.velocity += new Vector3(0f, 10f, 0f);
 		}
 		grounded = false;
@@ -51,6 +44,13 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	void OnTriggerEnter(Collider other) {
+		if (other.gameObject.layer == 11) {
+			Destroy(other.gameObject);
+			StartCoroutine("PickUpJump");
+		}
+	}
+
 	void OnCollisionStay(Collision other) {
 		if(other.gameObject.layer == 9 && other.contacts.Length > 0) {
 			var contactPoints = other.contacts;
@@ -58,5 +58,11 @@ public class PlayerController : MonoBehaviour {
 				grounded = true;
 			}
 		}
+	}
+
+	IEnumerator PickUpJump() {
+		canJump = true;
+		yield return new WaitForSeconds(5);
+		canJump = false;
 	}
 }
