@@ -10,7 +10,6 @@ public class Rotator : MonoBehaviour {
 	}
 	
 	void Update() {
-		//transform.Rotate(new Vector3 (0, 90, 0) * Time.deltaTime);
 		transform.RotateAround(c.bounds.center, new Vector3 (15, 30, 45), 45 * Time.deltaTime);
 	}
 }
